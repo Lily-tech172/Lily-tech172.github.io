@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直播换物阁二手交易平台</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product, .about, .live {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product img, .about img, .live img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .buttons {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>直播换物阁二手交易平台</h1>
+    </header>
+    <nav>
+        <a href="#">首页</a>
+        <a href="javascript:void(0);" onclick="showSection('about-section')">关于我们</a>
+        <a href="#">商品展示</a>
+        <a href="javascript:void(0);" onclick="showSection('live-section')">直播换物</a>
+    </nav>
+    <div class="container">
+        <section id="products-section">
+            <h2>商品展示</h2>
+            <div class="product">
+                <img src="images/1.png.jpg" alt="书本">
+                <h3>二手书本</h3>
+                <p>这里有各种二手书本，价格便宜，品质保证。</p>
+                <p>价格: ¥5.00</p>
+                <div class="buttons">
+                    <button onclick="addToCart('书本')">加入购物车</button>
+                    <button onclick="addToFavorites('书本')">收藏商品</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/2.jpg" alt="置物架">
+                <h3>二手置物架</h3>
+                <p>坚固耐用的二手置物架，适合家庭使用。</p>
+                <p>价格: ¥15.00</p>
+                <div class="buttons">
+                    <button onclick="addToCart('置物架')">加入购物车</button>
+                    <button onclick="addToFavorites('置物架')">收藏商品</button>
+                </div>
+            </div>
+            <!-- 你可以继续添加更多的商品 -->
+        </section>
+        <section id="about-section">
+            <h2>关于我们</h2>
+            <div class="about">
+                <img src="images/3.jpg" alt="关于我们">
+                <p>直播置物阁 是一个二手交易平台，致力于为用户提供优质的二手商品。</p>
+                <p>我们的宗旨是：让资源得到充分利用，让每个人都能找到心仪的商品。</p>
+                <div class="buttons">
+                    <button onclick="toggleSection('contact')">联系本店</button>
+                    <button onclick="toggleSection('more-info')">了解更多</button>
+                </div>
+            </div>
+        </section>
+        <section id="contact" style="display:none;">
+            <h2>联系方式</h2>
+            <div class="about">
+                <img src="images/contact.jpg" alt="联系方式">
+                <p>店铺电话：123-456-7890</p>
+                <p>店铺邮箱：example@example.com</p>
+            </div>
+            <button onclick="returnToAbout()">返回关于我们</button>
+        </section>
+        <section id="more-info" style="display:none;">
+            <h2>店铺介绍</h2>
+            <div class="about">
+                <p>本平台聚焦于网络直播形式，旨在为买卖双方提供安全便利的交易环境。入驻的卖家通过实名验证后可以在平台上通过直播的方式上架自己的产品，并根据评论区的实时要求进行产品讲解和定价；买家搜索自己感兴趣的二手商品，进入直播，并通过评论互动的方式了解产品的功能和特点，避免了其他二手平台使用虚假照片或视频欺骗买家、货不对版等问题。通过卖家和买家的这种良性互动，真正实现买卖双方的利益最大化，为二手交易提供一种新兴的交易方式，使二手交易与直播电商深度融合。</p>
+                <button onclick="returnToAbout()">返回关于我们</button>
+            </div>
+        </section>
+        <section id="live-section">
+            <h2>直播换物</h2>
+            <div class="live">
+                <img src="images/6.jpg" alt="直播换物">
+                <p>今日桂工特价</p>
+                <p>统统只要9.9</p>
+                <button onclick="toggleSection('live-room')">进入直播间</button>
+            </div>
+        </section>
+        <section id="live-room" style="display:none;">
+            <h2>直播间</h2>
+            <div class="live">
+                <!-- 这里可以嵌入直播视频或直播间的相关内容 -->
+                <p>欢迎来到直播间，享受直播换物的乐趣！</p>
+                <button onclick="returnToLive()">返回直播换物</button>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2022级桂林理工大学屏风校区2#110 版权所有</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // 显示指定ID的section，并隐藏其他所有section（除了about-section，因为它可能有子section）
+            var sections = document.querySelectorAll('.container > section');
+            sections.forEach(function(section) {
+                if (section.id !== sectionId && section.id !== 'about-section') {
+                    section.style.display = 'none';
+                } else if (section.id === sectionId) {
+                    section.style.display = 'block';
+                }
+            });
+            // 特别处理：如果点击的是关于我们，且当前没有显示about-section，则显示它
+            if (sectionId === 'about-section' && document.getElementById('about-section').style.display === 'none') {
+                document.getElementById('about-section').style.display = 'block';
+            }
+        }
+         
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+                // 隐藏其他相关section
+                if (sectionId === 'contact' || sectionId === 'more-info') {
+                    document.getElementById('about-section').style.display = 'block';
+                    document.getElementById('live-section').style.display = 'none';
+                    document.getElementById('live-room').style.display = 'none';
+                    document.querySelectorAll('#contact, #more-info').forEach(function(s) {
+                        if (s.id !== sectionId) {
+                            s.style.display = 'none';
+                        }
+                    });
+                } else if (sectionId === 'live-room') {
+                    document.getElementById('live-section').style.display = 'block';
+                    document.getElementById('about-section').style.display = 'none';
+                    document.getElementById('contact').style.display = 'none';
+                    document.getElementById('more-info').style.display = 'none';
+                }
+            } else {
+                section.style.display = 'none';
+            }
+        }
+         
+        function returnToAbout() {
+            document.getElementById('about-section').style.display = 'block';
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById('more-info').style.display = 'none';
+        }
+         
+        function returnToLive() {
+            document.getElementById('live-section').style.display = 'block';
+            document.getElementById('live-room').style.display = 'none';
+        }
+         
+        // 保留原有的购物车和收藏功能函数
+        function addToCart(productName) {
+            alert('已将' + productName + '加入购物车！');
+        }
+         
+        function addToFavorites(productName) {
+            alert('已将' + productName + '收藏！');
+        }
+        </script>
+        </body>
+        </html>
